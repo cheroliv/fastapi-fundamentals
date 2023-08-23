@@ -2,6 +2,7 @@
 
 == Mise en place de l'environement
 // TODO: setup up
+=== lancer le venv
 
 == REST API
 
@@ -31,6 +32,8 @@ def date():
 
 === Canary Tests
 
+carsharing/test/test_canary.py
+
 [source,python]
 ----
 from fastapi.testclient import TestClient
@@ -58,3 +61,24 @@ def test_date():
 ----
 
 
+=== Execution
+
+On lance le terminal, à la racine du projet. +
+On commence par se deplacer dans le dossier qui contient la config python: carsharing.
+Pour cela on tape la commande:
+[source,zsh]
+----
+cd carsharing;
+----
+
+Pour executer
+[source,zsh]
+----
+uvicorn carsharing:app --reload;
+----
+
+Pour tester
+[source,zsh]
+----
+pytest;
+----
