@@ -21,3 +21,10 @@ def test_date():
     # without exception it asserts date is a valid format
     datetime.fromisoformat(json.loads(response.text)["date"])
 
+
+def test_greeting():
+    name = "John"
+    response = client.get(f"/greeting/?name={name}")
+    assert response.status_code == 200
+    assert "Hi John. Welcome to the Car Sharing service!" in json.loads(response.text)[
+        "message"]

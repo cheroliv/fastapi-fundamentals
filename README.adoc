@@ -26,6 +26,8 @@ pip install -r requirements.txt
 uvicorn carsharing:app --reload;
 ----
 
+http://localhost:8000/
+
 ==== Pour tester
 [source,zsh]
 ----
@@ -88,5 +90,9 @@ def test_date():
     datetime.fromisoformat(json.loads(response.text)["date"])
 ----
 
+
+=== API documentation
+
+http://localhost:8000/docs: http://localhost:8000/docs[openapi]
 
 
