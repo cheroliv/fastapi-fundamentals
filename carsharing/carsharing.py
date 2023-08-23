@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from datetime import datetime
 
-app = FastAPI()
+if __name__ == "__main__":
+    uvicorn.run("carsharing:app", reload=True)
 
+app = FastAPI()
 
 @app.get("/")
 def welcome():
@@ -14,3 +16,5 @@ def welcome():
 def date():
     """Return the current date/time."""
     return {'date': datetime.now()}
+
+
