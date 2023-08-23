@@ -1,10 +1,9 @@
+import json
+from datetime import datetime
+
 from fastapi.testclient import TestClient
 
 from carsharing import app
-
-from datetime import datetime
-
-import json
 
 client = TestClient(app)
 
@@ -24,7 +23,9 @@ def test_date():
 
 def test_greeting():
     name = "John"
+    expected = f"Hi {name}. Welcome to the Car Sharing service!"
     response = client.get(f"/greeting/?name={name}")
-    assert response.status_code == 200
-    assert f"Hi {name}. Welcome to the Car Sharing service!" in json.loads(response.text)[
+    result = json.loads(response.text)[
         "message"]
+    assert response.status_code == 200
+    assert expected in result
