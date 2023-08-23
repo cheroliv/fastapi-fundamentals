@@ -1,4 +1,3 @@
 *.code-workspace
 /.idea/
 **/__pycache__/
-foo
