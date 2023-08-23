@@ -18,6 +18,6 @@ def test_welcome():
 def test_date():
     response = client.get("/date")
     assert response.status_code == 200
-    # assert date is a valid format
-#     datetime.fromisoformat(json.loads(response.text)["date"])
+    # without exception it asserts date is a valid format
+    datetime.fromisoformat(json.loads(response.text)["date"])
 
