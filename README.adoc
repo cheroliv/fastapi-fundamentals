@@ -1,6 +1,7 @@
 = FastAPI fundamentals
 
 == Mise en place de l'environement
+// TODO: setup up
 
 == REST API
 
