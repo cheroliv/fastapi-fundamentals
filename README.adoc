@@ -4,6 +4,34 @@
 // TODO: setup up
 === lancer le venv
 
+=== Execution
+
+On lance le terminal, à la racine du projet. +
+On commence par se déplacer dans le dossier qui contient la config python: carsharing.
+Pour cela on tape la commande:
+[source,zsh]
+----
+cd carsharing;
+----
+
+Recharger les requirements
+[source,zsh]
+----
+pip install -r requirements.txt   
+----
+
+==== Pour executer
+[source,zsh]
+----
+uvicorn carsharing:app --reload;
+----
+
+==== Pour tester
+[source,zsh]
+----
+pytest;
+----
+
 == REST API
 
 === Canary End points
@@ -61,24 +89,4 @@ def test_date():
 ----
 
 
-=== Execution
 
-On lance le terminal, à la racine du projet. +
-On commence par se deplacer dans le dossier qui contient la config python: carsharing.
-Pour cela on tape la commande:
-[source,zsh]
-----
-cd carsharing;
-----
-
-Pour executer
-[source,zsh]
-----
-uvicorn carsharing:app --reload;
-----
-
-Pour tester
-[source,zsh]
-----
-pytest;
-----
