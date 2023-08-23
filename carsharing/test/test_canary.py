@@ -26,5 +26,5 @@ def test_greeting():
     name = "John"
     response = client.get(f"/greeting/?name={name}")
     assert response.status_code == 200
-    assert "Hi John. Welcome to the Car Sharing service!" in json.loads(response.text)[
+    assert f"Hi {name}. Welcome to the Car Sharing service!" in json.loads(response.text)[
         "message"]

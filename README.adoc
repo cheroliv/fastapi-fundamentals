@@ -96,3 +96,27 @@ def test_date():
 http://localhost:8000/docs: http://localhost:8000/docs[openapi]
 
 
+=== Request parameter
+
+encodé dans la requete, ils sont les arguments nommé dans
+la fonction controller.
+
+[source,python]
+----
+# request parameter
+# localhost:8000/greeting/?name=John
+@app.get("/greeting")
+def welcome(name):
+    """Return a friendly welcome message."""
+    return {"message": f'Hi {name}. Welcome to the Car Sharing service!'}
+----
+
+
+[source,python]
+----
+def test_greeting():
+    name = "John"
+    response = client.get(f"/greeting/?name={name}")
+    assert response.status_code == 200
+    assert f"Hi {name}. Welcome to the Car Sharing service!" in json.loads(response.text)["message"]
+----
