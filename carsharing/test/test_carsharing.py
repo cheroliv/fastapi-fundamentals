@@ -4,6 +4,7 @@
 
 from fastapi.testclient import TestClient
 
+# noinspection PyUnresolvedReferences
 from carsharing import app
 
 client = TestClient(app)
