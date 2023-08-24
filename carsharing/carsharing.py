@@ -9,24 +9,23 @@ if __name__ == "__main__":
 app = FastAPI()
 
 
-# @app.get("/")
-# def welcome():
-#     """Return a friendly welcome message."""
-#     return {'message': "Welcome to the Car Sharing service!"}
-#
-#
-# @app.get("/date")
-# def date():
-#     """Return the current date/time."""
-#     return {'date': datetime.now()}
-#
-#
-# # request parameter
-# # localhost:8000/greeting/?name=John
-# @app.get("/greeting")
-# def welcome(name):
-#     """Return a friendly welcome message."""
-#     return {"message": f'Hi {name}. Welcome to the Car Sharing service!'}
+@app.get("/api/cars")
+def get_cars(size: Optional[str]=None, doors: Optional[int]= None) -> List:
+    result = db
+    if size:
+        result = [car for car in result if car['size'] == size]
+    if doors:
+        result = [car for car in result if car['doors'] >= doors]
+    return result
+
+
+@app.get("/api/cars/{id}")
+def car_by_id(id: int) -> dict:
+    result = [car for car in db if car['id'] == id]
+    if result:
+        return result[0]
+    else:
+        raise HTTPException(status_code=404, detail=f"No car with id={id}.")
 
 
 db = [
