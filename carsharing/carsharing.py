@@ -1,7 +1,7 @@
-from datetime import datetime
+from typing import List, Optional
 
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 if __name__ == "__main__":
     uvicorn.run('carsharing:app', reload=True)
