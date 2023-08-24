@@ -1,12 +1,10 @@
 import json
 from datetime import datetime
-from fastapi import FastAPI
 
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-
 canary = FastAPI()
-
 client = TestClient(canary)
 
 

@@ -11,7 +11,10 @@ app = FastAPI()
 
 
 @app.get("/api/cars")
-def get_cars(size: Optional[str] = None, doors: Optional[int] = None) -> List:
+def get_cars(
+    size: Optional[str] = None,
+    doors: Optional[int] = None
+) -> List:
     result = data.db
     if size:
         result = [car for car in result if car['size'] == size]
@@ -26,4 +29,7 @@ def car_by_id(id: int) -> dict:
     if result:
         return result[0]
     else:
-        raise HTTPException(status_code=404, detail=f"No car with id={id}.")
+        raise HTTPException(
+            status_code=404,
+            detail=f"No car with id={id}."
+        )
